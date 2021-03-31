@@ -33,6 +33,7 @@ public class securityProgram extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/product").hasAnyRole("MODERATOR","SUPER_ADMIN")
                 .antMatchers(HttpMethod.PUT,"/api/product/*").hasAnyRole("MODERATOR","SUPER_ADMIN")
+                .antMatchers(HttpMethod.GET,"/api/**").hasAnyRole("MODERATOR","SUPER_ADMIN")
                 .antMatchers("/api/order/**").hasAnyRole("OPERATOR","SUPER_ADMIN")
                 .antMatchers("/api/**").hasRole("SUPER_ADMIN")
                 .anyRequest()
